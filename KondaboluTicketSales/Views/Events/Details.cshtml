@@ -1,0 +1,31 @@
+﻿@*
+   created by Kondabolu
+*@
+@{
+ViewData["Title"] = "Details";}
+@model Events
+<h3>EventDetails</h3>
+<div class="imgdiv">
+    @*Display the images stored in images folder *@
+    <img src="~/Images/@Model.ImageId" alt="@Model.Title" />
+</div>
+<div>
+    <h5>@Model.Title</h5>
+    <table>
+        <tr>
+            <td> Description:</td>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <td> TicketPrice:</td>
+            <td>@Model.TicketPrice.ToString("C2")</td>
+        </tr>
+    </table>
+    @* Links to buy tickets and go back to Events list*@
+    <p>
+        <a asp-controller="Cart" asp-action="Buy" asp-route-id="@Model.Id">Buy tickets for this events</a>
+    </p>
+    <p>
+        <a asp-controller="Events" asp-action="EventList" >Back to Event List</a>
+    </p>
+</div>
